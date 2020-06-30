@@ -1,13 +1,13 @@
 // require coredinator
 const { api: corePatch } = configApp.paths.core;
-const Controller = require(`${corePatch}/versionOne/version1/Controller`);
+const Controller = require(`${corePatch}/versionOne/version1.1/Controller`);
 
 // require model
 const { api: pathModel } = configApp.paths.models;
 
 // require transform
 const { api: patchTransform } = configApp.paths.transforms;
-const LoginTransform = require(`${patchTransform}/versionOne/version1/authorize/LoginTransform`);
+const LoginTransform = require(`${patchTransform}/versionOne/version1.1/authorize/LoginTransform`);
 
 class AuthorizeController extends Controller {
     login(request, response) {

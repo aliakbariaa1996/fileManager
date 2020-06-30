@@ -10,7 +10,7 @@ const fileModel = require(`${pathModel}/versionOne/version1.1/fileModel`);
 
 // require transform
 const { api: patchTransform } = configApp.paths.transforms;
-const fileInformationTransform = require(`${patchTransform}/versionOne/version1.1/file/FileInformationTransform`);
+const fileInformationTransform = require(`${patchTransform}/versionOne/version1.1/files/FileInformationTransform`);
 
 class FileManagerController extends Controller {
 

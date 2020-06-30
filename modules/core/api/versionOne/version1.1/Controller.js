@@ -1,15 +1,15 @@
 // require helper 
-const { api : pathHelper , basePath : basePath } = configApp.paths.helpers;
+const { api: pathHelper, basePath: basePath } = configApp.paths.helpers;
 const response = require(`${pathHelper}/versionOne/version1.1/ResponseHelper`);
 
 // require model
-const { api : pathModel } = configApp.paths.models;
-const userModel = require(`${pathModel}/versionOne/version1.1/UserModel`);
+const { api: pathModel } = configApp.paths.models;
+const userModel = require(`${pathModel}/versionOne/version1.1/userModel`);
 
-class Controller{
-    constructor(){
-        this.helpers = { response  , defaultHelper };
-        this.models =  { userModel };
+class Controller {
+    constructor() {
+        this.helpers = { response };
+        this.models = { userModel };
     }
 }
 

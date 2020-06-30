@@ -11,7 +11,7 @@ module.exports = {
             api: path.resolve('./modules/models/api')
         },
         helpers: {
-            api: path.resolve('./modules/helpers/api'),
+            api: path.resolve('./modules/helpers'),
         },
         core: {
             api: path.resolve('./modules/core/api')
@@ -20,7 +20,7 @@ module.exports = {
             api: path.resolve('./modules/routes/api')
         },
         middlewares: {
-            api: path.resolve('./modules/routes/middlewares/api')
+            api: path.resolve('./modules/routes/middlewares')
         },
         transforms: {
             api: path.resolve('./modules/transforms/api')

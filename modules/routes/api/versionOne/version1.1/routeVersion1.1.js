@@ -20,15 +20,15 @@ const fileManagerController = require(`${controllerPath}/versionOne/version1.1/m
 const apiRouter = express.Router();
 
 // route authorize
-apiRouter.post('/login', controllerAuthorize.login.bind(controllerAuthorize));
-apiRouter.get('/register', controllerAuthorize.register.bind(controllerAuthorize));
-apiRouter.delete('/logout', userMiddleware.auth.bind(userMiddleware), controllerAuthorize.logout.bind(controllerAuthorize));
+apiRouter.post('/login', authorizeController.login.bind(authorizeController));
+apiRouter.get('/register', authorizeController.register.bind(authorizeController));
+apiRouter.delete('/logout', userMiddleware.auth.bind(userMiddleware), authorizeController.logout.bind(authorizeController));
 
 //route file manager
-apiRouter.post('/upload', userMiddleware.auth.bind(userMiddleware),uploadImagePlace.array('uploadedImages', 10),fileManagerController.upload.bind(fileManagerController));
+apiRouter.post('/upload', userMiddleware.auth.bind(userMiddleware),uploadfile.array('uploadedFiles', 10),fileManagerController.upload.bind(fileManagerController));
 apiRouter.get('/get', userMiddleware.auth.bind(userMiddleware),fileManagerController.upload.bind(fileManagerController));
 apiRouter.delete('/delete', userMiddleware.auth.bind(userMiddleware),fileManagerController.upload.bind(fileManagerController));
 
-router.use('/', clientRouter);
+router.use('/', apiRouter);
 
 module.exports = router;
