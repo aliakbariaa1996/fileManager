@@ -11,7 +11,7 @@ dotenv.config();
 global.configApp = require('./modules/config/app');
 
 //database connection
-mongoose.connect(`${process.env.DB_PROTOCOL_MONGODB_1 + process.env.DB_USER_NAME_MONGODB_1 + ':' + process.env.DB_PASSWORD_MONGODB_1 + '@' + process.env.DB_HOST_NAME_MONGODB_1 + process.env.DB_PORT_MONGODB_1}/${process.env.DB_DATA_BASE_NAME_MONGODB_1}?authSource=admin`, { useCreateIndex: true, useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true });
+mongoose.connect(`${process.env.DB_PROTOCOL_MONGODB + process.env.DB_USER_NAME_MONGODB + ':' + process.env.DB_PASSWORD_MONGODB + '@' + process.env.DB_HOST_NAME_MONGODB + process.env.DB_PORT_MONGODB}/${process.env.DB_DATA_BASE_NAME_MONGODB}?authSource=admin`, { useCreateIndex: true, useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 
 app.use(cors());

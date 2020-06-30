@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const nodemailer = require('nodemailer');
 
 class DefaultHelper {
     checkPage(page) {
@@ -31,9 +30,6 @@ class DefaultHelper {
         return new Promise((resolve, reject) => {
             resolve(uri.replace(/\\/g, '/').replace('../' + configApp.upload.directoryName, ''));
         });
-    }
-
-    async sendEmail(subject, email) {
     }
 }
 

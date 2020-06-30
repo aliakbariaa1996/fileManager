@@ -7,7 +7,7 @@ const { api: pathModel } = configApp.paths.models;
 
 // require transform
 const { api: patchTransform } = configApp.paths.transforms;
-const LoginTransform = require(`${patchTransform}/versionOne/version1.1/authorize/LoginTransform`);
+const loginTransform = require(`${patchTransform}/versionOne/version1.1/authorize/LoginTransform`);
 
 class AuthorizeController extends Controller {
     login(request, response) {
@@ -28,7 +28,8 @@ class AuthorizeController extends Controller {
                             if (!status) {
                                 return this.helpers.response.getInstance().checkResponse(response, {}, 404, "notfound user ", {});
                             } else {
-                                return this.helpers.response.getInstance().checkResponse(response, userInfo, 200, "login success", {});
+                                let responseFile = new loginTransform().transform(userInfo);
+                                return this.helpers.response.getInstance().checkResponse(response, responseFile, 200, "login success", {});
                             }
                         });
                     } else {
