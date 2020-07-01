@@ -60,7 +60,7 @@ class FileManagerController extends Controller {
             const objectMultiMedia = [];
             for (const value of request.files) {
                 objectMultiMedia.push({
-                    userId: body.userId,
+                    userId: body.userInfo._id,
                     name: value.path,
                     uri: await new this.helpers.defaultHelper().getInstance().checkValidUri(value.path)
                 });

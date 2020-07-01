@@ -11,14 +11,14 @@ const loginTransform = require(`${patchTransform}/versionOne/version1.1/authoriz
 
 class AuthorizeController extends Controller {
     login(request, response) {
-        request.checkBody('email', 'text message').notEmpty().matches(configApp.regexEmail, "i");
-        request.checkBody('password', 'text message').notEmpty();
+        request.checkQuery('email', 'text message').notEmpty().matches(configApp.regexEmail, "i");
+        request.checkQuery('password', 'text message').notEmpty();
 
         let validationErrors = request.validationErrors();
         if (validationErrors) {
             return this.helpers.response.getInstance().checkResponse(response, {}, 422, 'message TODO', validationErrors); // TODO set message
         } else {
-            const body = request.body;
+            const query = request.query;
             this.models.userModel.findOne({ email: body.email }, (error, userInfo) => {
                 if (error) {
                     return this.helpers.response.getInstance().checkResponse(response, {}, 500, 'message TODO', {}); // TODO set message
@@ -41,7 +41,7 @@ class AuthorizeController extends Controller {
     }
 
     register(request, response) {
-        request.checkBody('email', 'text message').notEmpty().matches(configApp.regexEmail, "i");
+        request.checkBody('email', 'text message').isEmail();
         request.checkBody('fullName', 'text message').notEmpty();
         request.checkBody('password', 'text message').notEmpty();
         request.checkBody('confirmPassword', 'text message').notEmpty();

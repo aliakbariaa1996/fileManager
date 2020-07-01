@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: 'application/json' }));
 app.use(bodyParser.text({ defaultCharset: 'utf-8' }));
 
-//app.use(expressValidator());
+app.use(expressValidator());
 app.use('/public', express.static('public'));
 
 // require router
